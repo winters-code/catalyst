@@ -4,6 +4,7 @@ mod rendering;
 
 // Import all of the requirements
 use rendering::prelude::*;
+use rendering::utils::*;
 use pollster;
 
 // Initialize the engine
