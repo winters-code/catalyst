@@ -4,6 +4,7 @@ mod rendering;
 
 // Import all of the requirements
 use rendering::prelude::*;
+use pollster;
 
 // Initialize the engine
 fn main() {
@@ -12,5 +13,5 @@ fn main() {
     let mut w = WindowHandler::new();
 
     // Initialize the window
-    w.start();
+    pollster::block_on(w.start());
 }

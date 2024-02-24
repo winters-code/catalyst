@@ -35,17 +35,24 @@ impl WindowHandler {
     }
 
     // Start up the window & enable the event loop
-    pub fn start(&mut self) {
+    pub async fn start(&mut self) {
 
+        // Make the window the currently active one
         self.window.make_current();
+
+        // Start polling for key events
         self.window.set_key_polling(true);
 
+        // While the window is open
+        println!("Started the window");
         while !self.window.should_close() {
-            // Swap front and back buffers
+
+            // Swap the rendering buffers
             self.window.swap_buffers();
 
-            // Poll for and process events
+            // Get all of the events
             self.glfw.poll_events();
+
             for (_, event) in glfw::flush_messages(&(self.events)) {
                 println!("{:?}", event);
                 match event {
@@ -56,7 +63,5 @@ impl WindowHandler {
                 }
             }
         }
-
-        println!("Started the window");
     }
 }
