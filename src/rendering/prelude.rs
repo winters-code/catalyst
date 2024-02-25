@@ -5,6 +5,6 @@ pub use crate::rendering::sys::window_handler::{
 pub use crate::rendering::sys::input_handler::{
     InputHandler
 };
-pub use crate::rendering::sys::dstore::inputs::{
+pub use crate::rendering::sys::dataclasses::inputs::{
     Inputs
 };

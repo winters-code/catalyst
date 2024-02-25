@@ -4,7 +4,7 @@ extern crate glfw;
 
 // Get all the requirements for the file
 use glfw::{Action, Context, Key};
-use crate::rendering::sys::dstore::inputs::{Inputs, InputState};
+use crate::rendering::sys::dataclasses::inputs::{Inputs, InputState};
 
 // Create the InputHandler struct with a core lifetime
 pub struct InputHandler<'core> {
