@@ -11,8 +11,8 @@ use pollster;
 fn main() {
 
     // Create a new WindowHandler
-    let mut w = WindowHandler::new();
+    let mut (wh, ih) = WindowHandler::new();
 
     // Initialize the window
-    pollster::block_on(w.start());
+    pollster::block_on(wh.start());
 }

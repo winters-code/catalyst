@@ -8,6 +8,7 @@ use crate::rendering::sys::dstore::inputs::{Inputs, InputState};
 
 // Create the InputHandler struct with a core lifetime
 pub struct InputHandler<'core> {
+    glfw: &'core glfw::Glfw,
     window: &'core mut glfw::PWindow,
     events: &'core glfw::GlfwReceiver<(f64, glfw::WindowEvent)>,
     inputs: Inputs
@@ -17,13 +18,16 @@ pub struct InputHandler<'core> {
 impl <'core> InputHandler<'core>  {
 
     // Create a new InputHandler
-    pub fn new(window: &'core mut glfw::PWindow, events: &'core glfw::GlfwReceiver<(f64, glfw::WindowEvent)>) -> InputHandler<'core> {
+    pub fn new(window: &'core mut glfw::PWindow, 
+               events: &'core glfw::GlfwReceiver<(f64, glfw::WindowEvent)>,
+               glfw: &'core glfw::Glfw) -> InputHandler<'core> {
 
         // The struct to save all the inputs
         let mut inputs: Inputs = Inputs::new();
 
         // Create & pop the input handler
         InputHandler {
+            glfw: glfw,
             window: window,
             events: events,
             inputs: inputs
@@ -46,6 +50,8 @@ impl <'core> InputHandler<'core>  {
 
     // Handle every single event
     pub fn handle_events(&self) {
+        for (_, event) in self.glfw::flush_messages(&(self.events)) {
 
+        }
     }
 }
