@@ -8,17 +8,17 @@ pub enum InputState {
 }
 
 pub struct Inputs {
-    keys: HashMap<String, u32>,
+    keys: HashMap<String, InputState>
 }
 
 impl Inputs {
     pub fn new() -> Inputs {
         Inputs {
-            HashMap::new()
+            keys: HashMap::new()
         }
     }
 
-    pub fn set(&self, key, state) {
+    pub fn set(&self, key: String, state: InputState) {
 
     }
 }

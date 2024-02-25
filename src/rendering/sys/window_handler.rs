@@ -64,4 +64,8 @@ impl WindowHandler {
             }
         }
     }
+
+    pub fn window(&self) -> &glfw::PWindow {
+        &self.window
+    }
 }
