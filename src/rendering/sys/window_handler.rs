@@ -3,7 +3,7 @@
 extern crate glfw;
 
 use glfw::{Action, Context, Key, fail_on_errors};
-use crate::rendering::sys::input_handler::{InputHandler};
+use crate::gfx::sys::input_handler::{InputHandler};
 
 // Window handler struct
 // This includes all the required functions to handle the window.
@@ -17,7 +17,7 @@ pub struct WindowHandler {
 impl WindowHandler {
 
     // Initialize a window and prepare it for drawing
-    pub fn new() ->(WindowHandler, InputHandler) {
+    pub fn new() -> WindowHandler {
         
         // Create the instance of GLFW
         let mut glfw = glfw::init(fail_on_errors!()).unwrap();
@@ -28,14 +28,12 @@ impl WindowHandler {
             .expect("Failed to make the GLFW window");
 
         // Pass the window handler back out
-        (
-            WindowHandler {
-                glfw: glfw,
-                window: window,
-                events: events
-            },
-            InputHandler::new(&self.window, &self.events, &self.glfw)
-        )
+        WindowHandler {
+            glfw: glfw,
+            window: window,
+            events: events
+        }
+        // InputHandler::new(&window, &events, &glfw)
     }
 
     // Start up the window & enable the event loop

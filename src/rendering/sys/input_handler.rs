@@ -50,7 +50,7 @@ impl <'core> InputHandler<'core>  {
 
     // Handle every single event
     pub fn handle_events(&self) {
-        for (_, event) in self.glfw::flush_messages(&(self.events)) {
+        for (_, event) in glfw::flush_messages(&(self.events)) {
 
         }
     }

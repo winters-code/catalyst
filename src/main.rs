@@ -1,4 +1,7 @@
 
+// I am hiding warnings because I just want to see errors currently.
+#![allow(warnings)]
+
 // Prepare the modules
 mod rendering;
 
@@ -11,7 +14,7 @@ use pollster;
 fn main() {
 
     // Create a new WindowHandler
-    let mut (wh, ih) = WindowHandler::new();
+    let mut wh = WindowHandler::new();
 
     // Initialize the window
     pollster::block_on(wh.start());
